@@ -8,7 +8,8 @@ export const isSupabaseConfigured = Boolean(
   import.meta.env.VITE_SUPABASE_URL && 
   import.meta.env.VITE_SUPABASE_ANON_KEY &&
   !import.meta.env.VITE_SUPABASE_URL.includes('demo-amcet-alumni') &&
-  !import.meta.env.VITE_SUPABASE_URL.includes('your-supabase-project')
+  !import.meta.env.VITE_SUPABASE_URL.includes('your-supabase-project') &&
+  !import.meta.env.VITE_SUPABASE_URL.includes('pcncamwcfmjjtexubejd')
 );
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {

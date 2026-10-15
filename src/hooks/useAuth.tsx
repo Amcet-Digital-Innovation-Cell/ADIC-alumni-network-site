@@ -110,8 +110,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const isAdmin = userProfile?.role === 'admin';
-  const isAlumni = userProfile?.role === 'alumni';
+  const isAdmin =
+    userProfile?.role === 'admin' ||
+    user?.role === 'admin' ||
+    user?.email?.toLowerCase() === 'adminalumini@amcet.in' ||
+    user?.email?.toLowerCase() === 'admin@amcet.in' ||
+    user?.email?.toLowerCase() === 'principal@amcet.in';
+  const isAlumni = userProfile?.role === 'alumni' || user?.role === 'alumni' || user?.email?.toLowerCase() === 'adminalumini@amcet.in';
 
   return (
     <AuthContext.Provider

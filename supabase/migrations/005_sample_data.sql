@@ -5,7 +5,12 @@ INSERT INTO public.departments (id, name, code) VALUES
     ('11111111-1111-1111-1111-111111111101', 'Computer Science & Engineering', 'CSE'),
     ('11111111-1111-1111-1111-111111111102', 'Information Technology', 'IT'),
     ('11111111-1111-1111-1111-111111111103', 'Electronics & Communication Engineering', 'ECE'),
-    ('11111111-1111-1111-1111-111111111104', 'Mechanical Engineering', 'MECH')
+    ('11111111-1111-1111-1111-111111111104', 'Mechanical Engineering', 'MECH'),
+    ('11111111-1111-1111-1111-111111111105', 'Electrical and Electronics Engineering', 'EEE'),
+    ('11111111-1111-1111-1111-111111111106', 'Civil Engineering', 'CIVIL'),
+    ('11111111-1111-1111-1111-111111111107', 'Master of Business Administration', 'MBA'),
+    ('11111111-1111-1111-1111-111111111108', 'Master of Computer Applications', 'MCA'),
+    ('11111111-1111-1111-1111-111111111109', 'Artificial Intelligence and Data Science', 'AIDS')
 ON CONFLICT (code) DO NOTHING;
 
 -- 2. Insert Industries

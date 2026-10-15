@@ -5,6 +5,7 @@ import { AlumniProfile } from '../types/database';
 import { AlumniCard } from '../components/AlumniCard';
 import { AlumniDetailModal } from '../components/AlumniDetailModal';
 import { ShieldCheck, Users, Building2, Award, Search, ArrowRight, GraduationCap, MapPin, CheckCircle2 } from 'lucide-react';
+import amcetLogo from '../assets/amcet-logo.png';
 
 export const HomePage: React.FC = () => {
   const [distinguished, setDistinguished] = useState<AlumniProfile[]>([]);
@@ -103,7 +104,7 @@ export const HomePage: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-transparent to-transparent opacity-80" />
               <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-[#0D0D0D]/80 backdrop-blur-md border border-[#F4EFE7]/10 flex items-center space-x-3">
-                <img src="/amcet-logo.png" alt="AMCET Emblem" className="w-10 h-10 object-contain rounded-full bg-[#161616] p-1 border border-[#B89B5E]/40" />
+                <img src={amcetLogo} alt="AMCET Emblem" className="w-10 h-10 object-contain rounded-full bg-[#161616] p-0.5 border border-[#B89B5E]/40" />
                 <div>
                   <h4 className="font-serif font-bold text-sm text-[#F4EFE7]">Annai Mira College Campus</h4>
                   <p className="text-[11px] text-[#A7A29B]">Arappakkam, Vellore, Tamil Nadu - 632517</p>

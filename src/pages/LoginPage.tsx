@@ -19,7 +19,9 @@ export const LoginPage: React.FC = () => {
 
     try {
       await signIn(email, password);
-      if (email.toLowerCase().includes('admin')) {
+      if (email.trim().toLowerCase() === 'adminalumini@amcet.in') {
+        navigate('/directory');
+      } else if (email.toLowerCase().includes('admin')) {
         navigate('/admin');
       } else {
         navigate('/dashboard');
@@ -42,7 +44,7 @@ export const LoginPage: React.FC = () => {
           </div>
           <h1 className="font-serif font-bold text-3xl text-[#F4EFE7]">Alumni Sign In</h1>
           <p className="text-xs text-[#A7A29B]">
-            Sign in to access your personal alumni dashboard, profile update requests, and notifications.
+            Sign in to access your personal alumni dashboard, directory management, and verified profile updates.
           </p>
         </div>
 
@@ -63,7 +65,7 @@ export const LoginPage: React.FC = () => {
               <input
                 type="email"
                 required
-                placeholder="your.email@amcet.edu"
+                placeholder="alumni@amcet.in"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-[#161616] pl-9 pr-3 py-2.5 rounded-xl text-xs text-[#F4EFE7] placeholder-[#A7A29B]/40 border border-[#F4EFE7]/10 focus:border-[#B89B5E] focus:outline-none"
@@ -93,7 +95,7 @@ export const LoginPage: React.FC = () => {
             disabled={loading}
             className="w-full py-3 rounded-xl burgundy-gradient-btn text-white text-xs font-bold uppercase tracking-wider shadow-lg transition-all hover:scale-[1.02]"
           >
-            {loading ? 'Signing In...' : 'Sign In to Dashboard'}
+            {loading ? 'Signing In...' : 'Sign In to Portal'}
           </button>
         </form>
 
