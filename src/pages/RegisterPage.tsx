@@ -11,8 +11,8 @@ export const RegisterPage: React.FC = () => {
   const [password, setPassword] = useState('');
   const [registerNumber, setRegisterNumber] = useState('');
   const [departmentId, setDepartmentId] = useState('');
-  const [batch, setBatch] = useState('2021-2025');
-  const [graduationYear, setGraduationYear] = useState('2025');
+  const [batch, setBatch] = useState('');
+  const [passoutYear, setPassoutYear] = useState('');
 
   const [departments, setDepartments] = useState<Department[]>([]);
   const [loading, setLoading] = useState(false);
@@ -40,6 +40,8 @@ export const RegisterPage: React.FC = () => {
       const authRes = await authService.signUp(email, password);
       const userId = authRes.user?.id || 'mock-user-' + Date.now();
 
+      const selectedYear = passoutYear ? parseInt(passoutYear, 10) : undefined;
+
       // 2. Register User Profile & Alumni Profile with registration_status = 'pending'
       await authService.registerAlumniUser(
         userId,
@@ -48,7 +50,8 @@ export const RegisterPage: React.FC = () => {
         registerNumber,
         departmentId,
         batch,
-        parseInt(graduationYear, 10)
+        selectedYear,
+        password
       );
 
       setSubmittedPending(true);
@@ -191,29 +194,31 @@ export const RegisterPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
             <div>
               <label className="block text-xs font-semibold text-[#B89B5E] mb-1 uppercase tracking-wider">
                 Batch
               </label>
               <input
                 type="text"
-                placeholder="2021-2025"
+                placeholder="e.g. 2021-2025"
                 value={batch}
                 onChange={(e) => setBatch(e.target.value)}
                 className="w-full bg-[#161616] px-3 py-2.5 rounded-xl text-xs text-[#F4EFE7] border border-[#F4EFE7]/10 focus:border-[#B89B5E] focus:outline-none font-mono"
               />
             </div>
-
             <div>
               <label className="block text-xs font-semibold text-[#B89B5E] mb-1 uppercase tracking-wider">
                 Graduation Year
               </label>
               <input
                 type="number"
-                placeholder="2025"
-                value={graduationYear}
-                onChange={(e) => setGraduationYear(e.target.value)}
+                min="1990"
+                max="2100"
+                placeholder="e.g. 2025"
+                required
+                value={passoutYear}
+                onChange={(e) => setPassoutYear(e.target.value)}
                 className="w-full bg-[#161616] px-3 py-2.5 rounded-xl text-xs text-[#F4EFE7] border border-[#F4EFE7]/10 focus:border-[#B89B5E] focus:outline-none font-mono"
               />
             </div>

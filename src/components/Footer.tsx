@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, MapPin, Mail, Globe, ExternalLink } from 'lucide-react';
+import amcetLogo from '../assets/amcet-logo.png';
 
 export const Footer: React.FC = () => {
   return (
@@ -9,10 +10,12 @@ export const Footer: React.FC = () => {
         {/* Brand */}
         <div className="md:col-span-2 space-y-4">
           <div className="flex items-center space-x-3">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#6E1F32] to-[#B89B5E] p-0.5">
-              <div className="w-full h-full bg-[#0D0D0D] rounded-full flex items-center justify-center">
-                <span className="font-serif font-bold text-[#B89B5E] text-xs">AMC</span>
-              </div>
+            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#6E1F32] to-[#B89B5E] p-0.5 shadow-md">
+              <img
+                src={amcetLogo}
+                alt="AMCET Logo"
+                className="w-full h-full object-contain rounded-full bg-[#0D0D0D] p-0.5 border border-[#B89B5E]/30"
+              />
             </div>
             <div>
               <h3 className="font-serif font-bold text-[#F4EFE7] text-lg">AMCET Alumni Network</h3>

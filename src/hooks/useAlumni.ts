@@ -32,7 +32,7 @@ export function useAlumni(initialFilters?: DirectoryFilters) {
 
   useEffect(() => {
     loadData();
-  }, [filters.search, filters.department_id, filters.batch, filters.company_id, filters.industry_id]);
+  }, [filters.search, filters.department_id, filters.batch, filters.company_id, filters.company_search, filters.industry_id]);
 
   return {
     alumni,
