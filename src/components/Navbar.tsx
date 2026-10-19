@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { Award, User, LogOut, Menu, X, ShieldCheck } from 'lucide-react';
+import amcetLogo from '../assets/amcet-logo.png';
 
 export const Navbar: React.FC = () => {
   const { user, isAdmin, signOut } = useAuth();
@@ -20,13 +21,9 @@ export const Navbar: React.FC = () => {
         <Link to="/" className="flex items-center space-x-3 group">
           <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-[#6E1F32] to-[#B89B5E] p-0.5 shadow-lg group-hover:scale-105 transition-transform duration-300">
             <img
-              src="/amcet-logo.png"
+              src={amcetLogo}
               alt="Annai Mira College Logo"
-              className="w-full h-full object-contain rounded-full bg-[#0D0D0D] p-1 border border-[#B89B5E]/30"
-              onError={(e) => {
-                // Fallback to text initials if image is not loaded
-                (e.target as HTMLElement).style.display = 'none';
-              }}
+              className="w-full h-full object-contain rounded-full bg-[#0D0D0D] p-0.5 border border-[#B89B5E]/30"
             />
           </div>
           <div>
